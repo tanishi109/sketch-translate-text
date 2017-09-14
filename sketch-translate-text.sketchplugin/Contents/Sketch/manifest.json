@@ -21,13 +21,21 @@
       "handler": "onRun",
       "script": "import.cocoascript",
       "shortcut": "ctrl shift i"
+    },
+    {
+      "name": "find and focus textLayer by internal id",
+      "identifier": "find",
+      "handler": "onRun",
+      "script": "find.cocoascript",
+      "shortcut": "ctrl shift f"
     }
   ],
   "menu": {
     "title": "sketch translate text",
     "items": [
       "export",
-      "import"
+      "import",
+      "find"
     ]
   }
 }

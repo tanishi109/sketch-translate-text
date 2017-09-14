@@ -1,0 +1,29 @@
+var onRun = function(context) {
+  var searchId = context.api().getStringFromUser("Input ID to focus.", "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX");
+
+  var document = context.document;
+  var pages = [document pages];
+  var currentPage = document.currentPage();
+
+  var scope = [currentPage children];
+  var predicate = NSPredicate.predicateWithFormat("className == %@",'MSTextLayer');
+
+  var view = document.currentView();
+
+  var queryResult = scope.filteredArrayUsingPredicate(predicate);
+  if ([queryResult count] > 0) {
+    var textLayers = [queryResult objectEnumerator];
+    var textOidMap = {};
+
+    while (textLayer = [textLayers nextObject]) {
+      var oid = textLayer.objectID();
+
+      if (`${oid}` == `${searchId}`) {
+        var rect = textLayer.absoluteRect().rect();
+
+        view.centerRect(rect);
+        [textLayer select:true byExpandingSelection:false]
+      }
+    }
+  }
+};
