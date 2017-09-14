@@ -22,9 +22,9 @@ edit csv to change wording. Don't change first column.
 TODO: not impremented.
 Can not replace correctly multi style defined in one textArea. Split two styles.
 
-### text is difficult to find
+### find text by id
 
-find by id `control + shift + f`.
+`control + shift + f`.
 
 ### line break
 
