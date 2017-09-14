@@ -17,10 +17,10 @@ edit csv to change wording. Don't change first column.
 
 ## FAQ
 
-### multi style error
+### multi style in one textArea.
 
 TODO: not impremented.
-multi style defined in one textArea. split one text into two.
+Can not replace correctly multi style defined in one textArea. Split two styles.
 
 ### text is difficult to find
 
