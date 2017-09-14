@@ -5,7 +5,7 @@
 
 ### 1. export i18n.csv
 
-select artboard(s) and `control + shift + E`.
+select artboard(s) and `control + shift + e`.
 
 ### 2. edit csv
 
