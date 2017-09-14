@@ -24,7 +24,7 @@ Can not replace correctly multi style defined in one textArea. Split two styles.
 
 ### text is difficult to find
 
-TODO: search by id feature will be coming soon.
+find by id `control + shift + f`.
 
 ### line break
 
