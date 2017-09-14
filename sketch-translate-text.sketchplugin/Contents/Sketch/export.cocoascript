@@ -1,0 +1,31 @@
+var onRun = function(context) {
+  var csv = "";
+  var selectedArtboards = context.selection;
+  var artboardsIterator = [selectedArtboards objectEnumerator];
+
+  var artboard;
+  while(artboard = [artboardsIterator nextObject]) {
+    var itemsOnArtboard = [artboard children];
+    var predicate = NSPredicate.predicateWithFormat("className == %@",'MSTextLayer');
+    var textLayers = itemsOnArtboard.filteredArrayUsingPredicate(predicate);
+    var textsIterator = [textLayers objectEnumerator];
+    
+    var textLayer;
+    while(textLayer = [textsIterator nextObject]) {
+      csv += `${textLayer.objectID()},${textLayer.stringValue().replace(/\n/gi, "<br/>")}\n`;
+    }
+  }
+
+  // ---------------- save file --------------------
+
+  var savePanel = NSSavePanel.savePanel();
+
+  savePanel.setNameFieldStringValue([NSString stringWithFormat:@'%@.csv', "i18n"]);
+  savePanel.setAllowsOtherFileTypes(false);
+  savePanel.runModal();
+
+  var filePath = savePanel.URL().path();
+  var fileManager = [NSFileManager defaultManager];
+
+  [fileManager createFileAtPath:filePath contents:csv attributes:nil];
+};

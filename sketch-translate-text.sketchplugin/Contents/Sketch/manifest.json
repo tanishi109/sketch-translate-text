@@ -1,0 +1,33 @@
+{
+  "name": "sketch translate text",
+  "description": "replace text by csv translation file",
+  "author": "tanishi",
+  "homepage": "",
+  "version": "0.0.1",
+  "identifier": "com.tanishi.sketch-translate-text",
+  "compatibleVersion": "3",
+  "bundleVersion": 1,
+  "commands": [
+    {
+      "name": "export csv",
+      "identifier": "export",
+      "handler": "onRun",
+      "script": "export.cocoascript",
+      "shortcut": "ctrl shift e"
+    },
+    {
+      "name": "import and replaceby csv",
+      "identifier": "import",
+      "handler": "onRun",
+      "script": "import.cocoascript",
+      "shortcut": "ctrl shift i"
+    }
+  ],
+  "menu": {
+    "title": "sketch translate text",
+    "items": [
+      "export",
+      "import"
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+var onRun = function(context) {
+  var openDialog = NSOpenPanel.openPanel()
+  openDialog.setCanChooseFiles(true)
+  openDialog.setAllowedFileTypes(["csv"])
+  openDialog.setCanChooseDirectories(false)
+  openDialog.setAllowsMultipleSelection(false)
+  openDialog.setCanCreateDirectories(false)
+  openDialog.setTitle("Select i18n file")
+  openDialog.setPrompt("import");
+  
+  openDialog.runModal();
+  var filePath = openDialog.URL().path();
+  var csv = NSString.stringWithContentsOfFile(filePath);
+  
+  log(csv)
+  
+  var map = {};
+  var ary = csv.split(/,|\n/)
+  
+  ary.forEach((str, i) => {
+    i % 2 === 0 ? map[str] = ary[i + 1] : null;
+  });
+  
+  var t = map;
+  
+  // --------------------
+  
+  var document = context.document;
+  var pages = [document pages];
+  var currentPage = document.currentPage();
+  
+  var scope = [currentPage children];
+  var predicate = NSPredicate.predicateWithFormat("className == %@",'MSTextLayer');
+  
+  var queryResult = scope.filteredArrayUsingPredicate(predicate);
+  if ([queryResult count] > 0) {
+      var textLayers = [queryResult objectEnumerator];
+  
+      while (textLayer = [textLayers nextObject]) {
+          var oid = textLayer.objectID();
+          var i18n = t[oid];
+          if (i18n != undefined) {
+              textLayer.stringValue = i18n.replace(/<br\/>/gi, "\n");
+          }
+      }
+  }
+};
