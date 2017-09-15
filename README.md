@@ -1,5 +1,7 @@
 # sketch translate text
 
+manage text by csv.
+
 ![gif](https://github.com/tanishi109/sketch-translate-text/blob/master/readme.gif?raw=true)
 
 ## How
