@@ -1,5 +1,6 @@
 # sketch translate text
 
+![gif](https://github.com/tanishi109/sketch-translate-text/blob/master/readme.gif?raw=true)
 
 ## How
 
